@@ -1,0 +1,18 @@
+# for example:
+# https://${storage_account_name}.blob.core.windows.net/${blob_container_name}/parent_dir/child_dir/sample1.dat
+# https://${storage_account_name}.blob.core.windows.net/${blob_container_name}/parent_dir/child_dir/sample2.dat
+# https://${storage_account_name}.blob.core.windows.net/${blob_container_name}/parent_dir/child_dir/sample3.dat
+
+LIST parent_dir
+output> 
+ parent_dir/child_dir/sample1.dat
+ parent_dir/child_dir/sample2.dat
+ parent_dir/child_dir/sample3.dat
+
+# Change Storage Tier
+HOT	parent_dir/child_dir/sample1.dat
+COLD	parent_dir/child_dir/sample1.dat
+ARCHIVE	parent_dir/child_dir/sample1.dat
+
+# Delete Blob
+DELETE	parent_dir/child_dir/sample1.dat
